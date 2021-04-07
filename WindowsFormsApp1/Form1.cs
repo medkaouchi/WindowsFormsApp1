@@ -147,7 +147,7 @@ namespace WindowsFormsApp1
                                     Topten.Add(Score, form2.name);
                                 else
                                     Topten[Score] += "," + form2.name;
-                                StreamWriter sw = new StreamWriter("C:\\Users\\MOHAMED\\source\\repos\\WindowsFormsApp1\\WindowsFormsApp1\\Resources\\TopTen.txt", false);
+                                StreamWriter sw = new StreamWriter(string.Format("{0}Resources\\TopTen.txt", Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\"))), false);
                                 sw.WriteLine(string.Join(Environment.NewLine, Topten));
                                 sw.Close();
                             }
@@ -165,7 +165,7 @@ namespace WindowsFormsApp1
                                 }
                                 else
                                     Topten[Score] += "," + form2.name;
-                                StreamWriter sw = new StreamWriter("C:\\Users\\MOHAMED\\source\\repos\\WindowsFormsApp1\\WindowsFormsApp1\\Resources\\TopTen.txt",false);
+                                StreamWriter sw = new StreamWriter(string.Format("{0}Resources\\TopTen.txt", Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\"))), false);
                                  sw.WriteLine(string.Join(Environment.NewLine,Topten));
                                 sw.Close();
                             }
@@ -199,7 +199,7 @@ namespace WindowsFormsApp1
                     lblLevel.Text = Level.ToString();
                     lblScore.Text = Score.ToString();
                     Topten.Clear();
-                    StreamReader sr1 = new StreamReader("C:\\Users\\MOHAMED\\source\\repos\\WindowsFormsApp1\\WindowsFormsApp1\\Resources\\TopTen.txt");
+                    StreamReader sr1 = new StreamReader( string.Format("{0}Resources\\TopTen.txt", Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\"))));
                     while ((Line = sr1.ReadLine()) != null)
                     {
                         Topten.Add(Convert.ToInt32(Line.Substring(1, Line.IndexOf(',') - 1)), Line.Split(' ')[1].Substring(0, Line.Split(' ')[1].Length - 1));
