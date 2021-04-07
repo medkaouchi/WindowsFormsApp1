@@ -47,7 +47,7 @@ namespace WindowsFormsApp1
             lblLevel.Text = Level.ToString();
             lblScore.Text = Score.ToString();
             
-            StreamReader sr1 = new StreamReader("C:\\Users\\MOHAMED\\source\\repos\\WindowsFormsApp1\\WindowsFormsApp1\\Resources\\TopTen.txt");
+            StreamReader sr1 = new StreamReader(string.Format("{0}Resources\\TopTen.txt", Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\"))));
             while ((Line=sr1.ReadLine())!=null)
             {
                 Topten.Add(Convert.ToInt32(Line.Substring(1, Line.IndexOf(',') - 1)), Line.Split(' ')[1].Substring(0, Line.Split(' ')[1].Length - 1));
